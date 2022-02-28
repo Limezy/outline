@@ -69,9 +69,9 @@ if (true) {
     )
   );
 
-  router.get("ldap",passport.authenticate(providerName));
+  router.get("ldapauth",passport.authenticate(providerName));
 
-  router.get("ldap.callback", passportMiddleware(providerName));
+  router.get("ldapauth.callback", passportMiddleware(providerName));
 }
 
 export default router;
