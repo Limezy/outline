@@ -10,7 +10,7 @@ import { getAllowedDomains } from "@server/utils/authentication";
 import { StateStore } from "@server/utils/passport";
 
 const router = new Router();
-const providerName = "ldap";
+const providerName = "ldapauth";
 const allowedDomains = getAllowedDomains();
 const scopes = [];
 
@@ -29,6 +29,7 @@ if (true) {
           searchFilter: '(uid={{username}})',
         },
         passReqToCallback: true,
+        callbackURL: `${env.URL}/auth/ldapauth.callback`,
         store: new StateStore(),
         handleErrorsAsFailures: true,
       },
